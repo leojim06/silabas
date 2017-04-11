@@ -15,8 +15,8 @@ export class SilabasComponent implements OnInit {
 
   private state: string = '';
 
-  private play: boolean = false;
-  private finishGame: boolean = false;
+  play: boolean = false;
+  finishGame: boolean = false;
   private silabasForm: FormGroup;
   private randomValue: Silaba;
   private randomResult = [];
