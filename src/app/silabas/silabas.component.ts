@@ -115,13 +115,25 @@ export class SilabasComponent implements OnInit {
   }
 
   randomSilaba() {
-    this.randomValue = this.fullData[Math.floor(Math.random() * this.fullData.length)];
-
     if (this.fullData.length > 0) {
+      this.randomValue = this.generateRandomValue(this.randomValue);
       this.countFrecuency(this.randomValue);
     } else {
+      this.randomValue = undefined;
       this.finishGame = true;
     }
+  }
+
+  generateRandomValue(oldValue: Silaba) {
+    let newValue: Silaba;
+    if (oldValue === undefined) {
+      newValue = this.fullData[Math.floor(Math.random() * this.fullData.length)];
+    } else {
+      do {
+        newValue = this.fullData[Math.floor(Math.random() * this.fullData.length)];
+      } while (newValue.char === oldValue.char);
+    }
+    return newValue;
   }
 
   countCorrectSilaba() {
