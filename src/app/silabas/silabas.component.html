@@ -1,0 +1,29 @@
+<div *ngIf="finishGame" class="board">
+   <p>Correctas: {{ correctas }}</p>
+   <p>Incorrectas: {{ incorrectas }}</p>
+</div>
+
+<div *ngIf="play; then startGame; else configGame"></div>
+<ng-template #startGame>
+   <div *ngIf="randomValue" [@moveInLeft]='state'>
+      <app-silaba [silaba]="randomValue"></app-silaba>
+   </div>
+   <div *ngIf="!finishGame">
+      <button (click)="countCorrectSilaba()" class="btn btn-green">Bien</button>
+      <button (click)="countIncorrectSilaba()" class="btn btn-red">Mal</button>
+   </div>
+   <br>
+   <button (click)="restartGame()" class="btn btn-acction">Nuevo Juevo</button>
+</ng-template>
+<ng-template #configGame>
+   <form [formGroup]="silabasForm" (ngSubmit)="playGame(silabasForm)">
+      <fieldset class="board">
+         <div><input type="checkbox" name="checkVocales" value="" formControlName="checkVocales">Vocales</div>
+         <div><input type="checkbox" name="checkM" value="" formControlName="checkM">m</div>
+         <div><input type="checkbox" name="checkN" value="" formControlName="checkN">n</div>
+         <div><input type="checkbox" name="checkS" value="" formControlName="checkS">s</div>
+         <div><input type="checkbox" name="checkP" value="" formControlName="checkP">p</div>
+      </fieldset>
+      <button type="submit" class="btn btn-acction">Jugar</button>
+   </form>
+</ng-template>

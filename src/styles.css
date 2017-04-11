@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+   font-family: "ShortStack-Regular";
+   src: url("./assets/fonts/ShortStack-Regular.ttf") format("truetype");
+   font-weight: normal;
+	font-style: normal;
+}
+
+body {
+   font-family: "ShortStack-Regular";
+   text-align: center;
+   /*background-color: #06B3FF;*/
+   background-color: #1989CF;
+}
+
+.board {
+   margin-left: 18%;
+   margin-right: 18%;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   border: solid 4px #F96232;
+   background-color: #FFFEFF;
+   color: #1D1C1D;
+   font-size: 1.6em;
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+/*button {
+   display: inline-block;
+   margin: 0 10px 0 0;
+   padding: 15px 45px;
+   font-size: 175%;
+}*/
