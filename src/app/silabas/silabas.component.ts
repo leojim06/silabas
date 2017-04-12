@@ -129,9 +129,13 @@ export class SilabasComponent implements OnInit {
     if (oldValue === undefined) {
       newValue = this.fullData[Math.floor(Math.random() * this.fullData.length)];
     } else {
-      do {
+      if (this.fullData.length === 1 && oldValue.char === this.fullData[0].char) {
         newValue = this.fullData[Math.floor(Math.random() * this.fullData.length)];
-      } while (newValue.char === oldValue.char);
+      } else {
+        do {
+          newValue = this.fullData[Math.floor(Math.random() * this.fullData.length)];
+        } while (newValue.char === oldValue.char);
+      }
     }
     return newValue;
   }
